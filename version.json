@@ -1,0 +1,9 @@
+{
+  "nombre": "combates",
+  "version": "1.0.0",
+  "fecha": "2026-10-16",
+  "notas": "Primera versión como complemento: visor de combates extraído del núcleo.",
+  "url": "https://github.com/GalaxytoolNG/combates",
+  "instrucciones_actualizacion": "cd plugins/combates && git pull",
+  "nucleo_minimo": "1.0.0"
+}

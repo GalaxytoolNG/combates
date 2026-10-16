@@ -1,0 +1,30 @@
+nombre: combates
+titulo: Combates
+descripcion: Visor de los informes de combate recibidos por el script de usuario, con filtro por fechas, resumen de botín y pérdidas y detalle de cada batalla al estilo del informe de OGame.
+version: 1.0.0
+autor:
+  nombre: GalaxytoolNG
+  url: https://github.com/GalaxytoolNG
+url: https://github.com/GalaxytoolNG/combates
+repositorio: https://github.com/GalaxytoolNG/combates.git
+actualizaciones: https://galaxytoolng.github.io/combates/version.json
+licencia: GPL-3.0-or-later
+clase: Complementos\Combates\Complemento
+prefijo_rutas: combates
+dependencias:
+  núcleo: ">=1.0.0"
+tablas: []
+permisos:
+  acceso: Ver los combates del jugador asociado al usuario
+  operador: Ver los combates de cualquier jugador del universo
+  administrador: Cambiar la configuración del complemento
+menu:
+  - texto: Combates
+    ruta: /combates
+    nivel: acceso
+configuracion:
+  dias_por_defecto:
+    tipo: entero
+    defecto: 1
+    titulo: Días que muestra el listado por defecto
+    ayuda: 1 = solo hoy

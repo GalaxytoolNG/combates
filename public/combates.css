@@ -1,0 +1,61 @@
+/* Combates: estilos propios del complemento */
+.filtro-fechas .atajos { display: flex; gap: 4px; align-items: flex-end; }
+.filtro-fechas .en-linea > div { flex: 0 0 auto; }
+.filtro-fechas input[type=date] { width: 150px; }
+.resumen-combates { font-size: 11px; color: var(--texto-tabla); }
+.tabla-combates th.num, .tabla-combates td.num { text-align: right; white-space: nowrap; }
+.tabla-combates td.ganador { font-weight: 700; white-space: nowrap; }
+.tabla-combates td.ganador .secundario { display: block; margin: 0; font-weight: 400; }
+.tabla-combates .propio { color: var(--acento-hover); }
+.tabla-combates tfoot td { background: var(--fondo-cabecera-2); font-weight: 700; }
+.victoria { color: var(--ok) !important; }
+.derrota { color: var(--error) !important; }
+.empate { color: var(--texto-secundario) !important; }
+.tabla-combates tr.fila-victoria td:first-child { box-shadow: inset 3px 0 0 var(--ok); }
+.tabla-combates tr.fila-derrota td:first-child { box-shadow: inset 3px 0 0 var(--error); }
+.tabla-combates tr.fila-empate td:first-child { box-shadow: inset 3px 0 0 var(--texto-secundario); }
+
+/* ---------- Detalle de batalla (presentación similar al informe de OGame) ---------- */
+.enlace-detalle { color: var(--texto-blanco); border-bottom: 1px dotted var(--acento); }
+.enlace-detalle:hover { color: var(--acento-hover); text-decoration: none; }
+.lado-atacante { color: #99cc00 !important; }
+.lado-defensor { color: #d43635 !important; }
+.informe-batalla { background: var(--fondo-caja); border: 1px solid var(--borde-tabla); padding: 8px 12px; font-size: 11px; max-width: 1100px; }
+.ib-cabecera { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 6px; }
+.ib-titulo { font-weight: 700; color: var(--acento); font-size: 12px; }
+.ib-coords { font-weight: 700; color: var(--texto-blanco); }
+.ib-fecha { color: var(--texto-tabla); white-space: nowrap; }
+.ib-linea { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 6px 0; border-top: 1px solid var(--borde-suave); border-bottom: 1px solid var(--borde-suave); }
+.ib-valor { color: var(--oro); }
+.ib-aviso { color: var(--error); }
+.ib-rondas a { display: inline-block; min-width: 14px; margin-left: 4px; padding: 0 4px; text-align: center; color: var(--acento); border-radius: 3px; }
+.ib-rondas a.seleccionada { background: var(--gradiente-boton-verde); color: #000; text-decoration: none; }
+.ib-columnas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+.ib-caja { border: 1px solid #3d4b5b; padding: 6px 8px; background: rgba(0, 0, 0, .35); }
+.ib-caja-titulo { margin: 4px 0; padding: 2px 8px; background: var(--gradiente-cabecera); color: var(--acento); font-weight: 700; }
+.ib-ancho { margin-top: 10px; }
+.ib-recursos { display: flex; flex-wrap: wrap; gap: 4px 14px; padding: 2px 8px 6px; }
+.ib-recursos em { font-style: normal; color: var(--texto-secundario); margin-right: 3px; }
+.ib-honor { margin: 8px 0; padding: 5px; text-align: center; border: 1px solid #3d4b5b; }
+.ib-bandos { align-items: start; }
+.ib-bando { border: 1px solid; padding: 6px 8px; background: rgba(0, 0, 0, .35); }
+.ib-bando-atacante { border-color: #5c8a00; }
+.ib-bando-defensor { border-color: #7a1f1e; }
+.ib-participante + .ib-participante { margin-top: 10px; padding-top: 8px; border-top: 1px dashed var(--borde-suave); }
+.ib-participante.propio .ib-participante-titulo { box-shadow: inset 3px 0 0 var(--acento-hover); padding-left: 6px; }
+.ib-participante-titulo { font-weight: 700; color: var(--texto-blanco); }
+.ib-propio { margin-left: 6px; padding: 0 5px; border: 1px solid var(--acento-hover); color: var(--acento-hover); font-size: 9px; font-weight: 400; vertical-align: middle; }
+.ib-tecnologias { display: flex; gap: 14px; flex-wrap: wrap; margin: 4px 0 6px; color: var(--texto-tabla); }
+.ib-unidades { width: 100%; border-collapse: separate; border-spacing: 0 2px; }
+.ib-unidades td { padding: 3px 8px; background: var(--fondo-panel); color: var(--texto-blanco); }
+.ib-unidades td:first-child { border-radius: 4px 0 0 4px; }
+.ib-unidades td:last-child { border-radius: 0 4px 4px 0; }
+.ib-destruidas { text-align: right; color: var(--error); white-space: nowrap; }
+.ib-restantes { text-align: right; color: var(--oro); font-weight: 700; width: 90px; white-space: nowrap; }
+.ib-reparadas { display: flex; flex-wrap: wrap; gap: 4px 18px; padding: 4px 8px; }
+.ib-estadisticas { margin-top: 8px; }
+.ib-estadisticas p { margin: 4px 0; }
+.ib-hash { margin: 10px 0 0; font-size: 10px; }
+@media (max-width: 760px) { .ib-columnas { grid-template-columns: 1fr; } }
+
+
