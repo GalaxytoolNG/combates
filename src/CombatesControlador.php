@@ -114,7 +114,10 @@ final class CombatesControlador extends ControladorWeb
             $volver .= '?' . http_build_query(['desde' => (string)$_GET['desde'], 'hasta' => (string)$_GET['hasta']]);
         }
 
+        $localizacion = new \App\Servicios\LocalizacionServicio($this->pdo);
         $this->renderizar(self::VISTAS . 'detalle.php', [
+            'nombre' => $localizacion->resolutor($idUniverso),
+            'con_nombres' => $localizacion->tieneLocalizacion($idUniverso),
             'c' => $combate,
             'id_universo' => $idUniverso,
             'volver' => $volver,

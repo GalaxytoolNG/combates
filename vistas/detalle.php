@@ -5,7 +5,10 @@ use App\Base\Vista;
 /** @var array $c */
 /** @var string $id_universo */
 /** @var string $volver */
+/** @var callable $nombre */
+/** @var bool $con_nombres */
 $e = fn($t) => Vista::e($t);
+$unidad = fn($id) => $con_nombres ? $e($nombre($id)) : '#' . (int)$id;
 $n = fn(int $v) => number_format($v, 0, ',', '.');
 $nombreLado = ['atacante' => 'Atacante', 'defensor' => 'Defensor'];
 $recursosNombre = ['metal' => 'Metal', 'crystal' => 'Cristal', 'deuterium' => 'Deuterio', 'food' => 'Comida'];
@@ -23,7 +26,7 @@ if ($otros) {
 }
 
 $listaUnidades = fn(array $lista) => $lista
-    ? implode(', ', array_map(fn($id, $cant) => $n($cant) . ' × #' . $id, array_keys($lista), $lista))
+    ? implode(', ', array_map(fn($id, $cant) => $n($cant) . ' × ' . $unidad($id), array_keys($lista), $lista))
     : '—';
 
 $atacantes = array_values(array_filter($c['participantes'], fn($p) => $p['lado'] === 'atacante'));
@@ -143,7 +146,7 @@ $unidadesEn = function (array $p, int $ronda) use ($c): array {
                         <table class="ib-unidades">
                         <?php foreach ($filas as $id) : ?>
                             <tr>
-                                <td class="ib-unidad">#<?= (int)$id ?></td>
+                                <td class="ib-unidad"><?= $unidad($id) ?></td>
                                 <td class="ib-destruidas"><?= $u[$id]['destruidas'] > 0 ? '−' . $n($u[$id]['destruidas']) : '-' ?></td>
                                 <td class="ib-restantes"><?= $n($u[$id]['restantes']) ?></td>
                             </tr>
@@ -162,7 +165,7 @@ $unidadesEn = function (array $p, int $ronda) use ($c): array {
     <?php if ($c['reparadas']) : ?>
     <div class="ib-caja-titulo ib-ancho">Instalaciones defensivas reparadas</div>
     <div class="ib-reparadas">
-        <?php foreach ($c['reparadas'] as $id => $cant) : ?><span>#<?= (int)$id ?> <strong><?= $n($cant) ?></strong></span><?php endforeach; ?>
+        <?php foreach ($c['reparadas'] as $id => $cant) : ?><span><?= $unidad($id) ?> <strong><?= $n($cant) ?></strong></span><?php endforeach; ?>
     </div>
     <?php endif; ?>
 
@@ -174,7 +177,7 @@ $unidadesEn = function (array $p, int $ronda) use ($c): array {
     </div>
     <?php endforeach; ?>
     <div class="ib-estadisticas ib-ronda" data-ronda="0">
-        <p class="secundario">Seleccione una ronda para ver los disparos y el daño absorbido. Las unidades se identifican por su id de OGame hasta que se descargue la localización del API.</p>
+        <p class="secundario">Seleccione una ronda para ver los disparos y el daño absorbido.<?= $con_nombres ? '' : ' Las unidades se identifican por su id de OGame: sincronice la parte «Localización» del universo para ver sus nombres.' ?></p>
     </div>
     <?php if ($c['hashCode'] !== null) : ?><p class="secundario ib-hash">Hash: <code><?= $e($c['hashCode']) ?></code></p><?php endif; ?>
 </div>
